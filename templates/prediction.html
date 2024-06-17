@@ -1,107 +1,173 @@
-{% extends "layout.html" %}
-{% block contain %}
-
-<form action="" method="post">
-    {{ form.hidden_tag() }}
-    <div>
-        {{ form.airline.label }}
-        {{ form.airline }}
-        {% if form.airline.errors %}
-            {% for error in form.airline.errors %}
-                <div>{{ error }}</div>
-            {% endfor %}
-        {% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ Title }}</title>
+    <style>
+        body {
+            background-color: #7b63da;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            align-items: flex-start;
+        }
+        .info {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            margin-right: 20px;
+            max-width: 300px;
+        }
+        form {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        label {
+            color: #bbbbbb;
+        }
+        a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        div {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="info">
+            <h3>Predicting Airplane Ticket Prices</h3>
+            <p>The price of airplane tickets depends on various factors such as:</p>
+            <ul>
+                <li>Airline</li>
+                <li>Date of Journey</li>
+                <li>Source</li>
+                <li>Destination</li>
+                <li>Departure Time</li>
+                <li>Arrival Time</li>
+                <li>Duration</li>
+                <li>Total Stops</li>
+                <li>Additional Information</li>
+            </ul>
+            <p>By analyzing these factors, you can predict the ticket prices more accurately.</p>
+        </div>
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div>
+                {{ form.airline.label }}
+                {{ form.airline }}
+                {% if form.airline.errors %}
+                    {% for error in form.airline.errors %}
+                        <div>{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <br>
+            <div>
+                {{ form.date_of_journey.label }}
+                {{ form.date_of_journey }}
+                {% if form.date_of_journey.errors %}
+                    {% for error in form.date_of_journey.errors %}
+                        <div>{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <br>
+            <div>
+                {{ form.source.label }}
+                {{ form.source }}
+                {% if form.source.errors %}
+                    {% for error in form.source.errors %}
+                        <div>{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <br>
+            <div>
+                {{ form.destination.label }}
+                {{ form.destination }}
+                {% if form.destination.errors %}
+                    {% for error in form.destination.errors %}
+                        <div>{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <br>
+            <div>
+                {{ form.dep_time.label }}
+                {{ form.dep_time }}
+                {% if form.dep_time.errors %}
+                    {% for error in form.dep_time.errors %}
+                        <div>{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <br>
+            <div>
+                {{ form.arrival_time.label }}
+                {{ form.arrival_time }}
+                {% if form.arrival_time.errors %}
+                    {% for error in form.arrival_time.errors %}
+                        <div>{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <br>
+            <div>
+                {{ form.duration.label }}
+                {{ form.duration }}
+                {% if form.duration.errors %}
+                    {% for error in form.duration.errors %}
+                        <div>{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <br>
+            <div>
+                {{ form.total_stops.label }}
+                {{ form.total_stops }}
+                {% if form.total_stops.errors %}
+                    {% for error in form.total_stops.errors %}
+                        <div>{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <br>
+            <div>
+                {{ form.additional_info.label }}
+                {{ form.additional_info }}
+                {% if form.additional_info.errors %}
+                    {% for error in form.additional_info.errors %}
+                        <div>{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <br>
+            <div>{{ form.submit() }}</div>
+            <br>
+            <div>
+                {{ output }}
+            </div>
+            <br>
+            <div>
+                <p>Redirect to home page? <a href="{{ url_for('home') }}">Home</a></p>
+            </div>
+        </form>
     </div>
-    <br>
-    <div>
-        {{ form.date_of_journey.label }}
-        {{ form.date_of_journey }}
-        {% if form.date_of_journey.errors %}
-            {% for error in form.date_of_journey.errors %}
-                <div>{{ error }}</div>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-    <div>
-        {{ form.source.label }}
-        {{ form.source }}
-        {% if form.source.errors %}
-            {% for error in form.source.errors %}
-                <div>{{ error }}</div>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-    <div>
-        {{ form.destination.label }}
-        {{ form.destination }}
-        {% if form.destination.errors %}
-            {% for error in form.destination.errors %}
-                <div>{{ error }}</div>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-    <div>
-        {{ form.dep_time.label }}
-        {{ form.dep_time }}
-        {% if form.dep_time.errors %}
-            {% for error in form.dep_time.errors %}
-                <div>{{ error }}</div>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-    <div>
-        {{ form.arrival_time.label }}
-        {{ form.arrival_time }}
-        {% if form.arrival_time.errors %}
-            {% for error in form.arrival_time.errors %}
-                <div>{{ error }}</div>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-    <div>
-        {{ form.duration.label }}
-        {{ form.duration }}
-        {% if form.duration.errors %}
-            {% for error in form.duration.errors %}
-                <div>{{ error }}</div>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-    <div>
-        {{ form.total_stops.label }}
-        {{ form.total_stops }}
-        {% if form.total_stops.errors %}
-            {% for error in form.total_stops.errors %}
-                <div>{{ error }}</div>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-    <div>
-        {{ form.additional_info.label }}
-        {{ form.additional_info }}
-        {% if form.additional_info.errors %}
-            {% for error in form.additional_info.errors %}
-                <div>{{ error }}</div>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-    <div>{{ form.submit() }}</div>
-    <br>
-    <div>
-        {{ output }}
-    </div>
-    <br>
-
-    <div>
-        <p>Redirect to home page? <a href="{{ url_for('home') }}">Home</a></p>
-    </div>
-</form>
-{% endblock contain %}
+</body>
+</html>

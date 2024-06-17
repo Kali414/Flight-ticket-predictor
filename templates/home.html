@@ -1,11 +1,59 @@
-{% extends "layout.html" %}
-
-{% block contain %}
-<p><h2>This is a web page to tell you the price of airplane tickets according 
-    to some factors like Airline,Source,Destination etc</h2></p>
-<div>
-    <h2>TO KNOW THE ACTUAL PRICES</h2>
-    <br>
-    <a href="{{ url_for('predict')}}">Click Here !!!</a>
-</div>
-{% endblock contain %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ Title }}</title>
+    <style>
+        body {
+            background-color: #7b63da;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+        a {
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 1.5em; /* Increase the font size */
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h1, h2 {
+            color: #e0e0e0;
+        }
+        div {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>This is the {{ Title }} page.</h1>
+    <p>
+        <h2>This is a web page to tell you the price of airplane tickets according to some factors like Airline, Source, Destination, etc.</h2>
+    </p>
+    <div>
+        <h2>TO KNOW THE ACTUAL PRICES</h2>
+        <br>
+        <a href="{{ url_for('predict') }}">Click Here !!!</a>
+    </div>
+    <div>
+        <h2>Factors Affecting Airplane Ticket Prices</h2>
+        <p>The price of an airplane ticket is influenced by several factors, including:</p>
+        <p><strong>Airline:</strong> Different airlines have different pricing strategies.</p>
+        <p><strong>Date of Journey:</strong> Ticket prices can vary significantly depending on the travel date.</p>
+        <p><strong>Source and Destination:</strong> The departure and arrival locations affect the ticket cost.</p>
+        <p><strong>Departure and Arrival Times:</strong> Flights at peak times are usually more expensive.</p>
+        <p><strong>Duration:</strong> The total travel time can impact the price.</p>
+        <p><strong>Total Stops:</strong> Non-stop flights are often more expensive than flights with stops.</p>
+        <p><strong>Additional Information:</strong> Factors such as baggage allowance, in-flight services, and ticket flexibility can also affect prices.</p>
+        <p>By understanding these factors, you can make more informed decisions when booking your flights and potentially save money on airfare.</p>
+    </div>
+</body>
+</html>
