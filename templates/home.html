@@ -6,13 +6,13 @@
     <title>{{ Title }}</title>
     <style>
         body {
-            background-color: #7b63da;
+            background: linear-gradient(135deg, #7b63da, #1f1d2b);
             color: #e0e0e0;
             font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             flex-direction: column;
             text-align: center;
@@ -30,18 +30,25 @@
         }
         div {
             margin-top: 20px;
+            max-width: 800px;
+            padding: 20px;
+            background-color: rgba(31, 29, 43, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
-    <h1>This is the {{ Title }} page.</h1>
-    <p>
-        <h2>Discover the Factors Influencing Airplane Ticket Prices</h2>
-        <p>Welcome to our flight price prediction page! Here, you can find out how various factors such as the airline, departure and arrival locations, and the timing of your journey can impact the cost of airplane tickets. By understanding these elements, you can make smarter decisions and potentially save on your travel expenses.</p>
-    </p>
     <div>
-        <h2>TO KNOW THE ACTUAL PRICES</h2>
+        <h1>Welcome!</h1>
+        <p><strong>Discover the Factors Influencing Airplane Ticket Prices</strong></p>
+        <p>Welcome to our flight price prediction page! Here, you can find out how various factors such as the airline, departure and arrival locations, and the timing of your journey can impact the cost of airplane tickets. By understanding these elements, you can make smarter decisions and potentially save on your travel expenses.</p>
         <br>
+        <h2>TO KNOW THE ACTUAL PRICES</h2>
         <a href="{{ url_for('predict') }}">Click Here !!!</a>
     </div>
     <div>
