@@ -1,71 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <title>Price Predictor</title>
-    <style>
-        body {
-            background: linear-gradient(135deg, #7b63da, #1f1d2b);
-            color: #e0e0e0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            flex-direction: column;
-            text-align: center;
-        }
-        a {
-            color: #00ff00;
-            text-decoration: none;
-            font-size: 1.5em; /* Increase the font size */
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        h1, h2 {
-            color: #e0e0e0;
-        }
-        div {
-            margin-top: 20px;
-            max-width: 800px;
-            padding: 20px;
-            background-color: rgba(31, 29, 43, 0.8);
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-        p {
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <title>SmartFare: Flight Price Prediction Web App</title>
+  <style>
+    body {
+      background-color: #f7f9fb;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #2c3e50;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 12px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-title {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #3498db;
+    }
+
+    .nav-links a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #3498db;
+    }
+
+    .container {
+      max-width: 900px;
+      background-color: #ffffff;
+      margin: 40px auto;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    h1 {
+      color: #2c3e50;
+      font-size: 2.4em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: #34495e;
+      font-size: 1.6em;
+      margin-top: 30px;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: #3498db;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #2980b9;
+      transform: translateY(-2px);
+    }
+
+    strong {
+      color: #2c3e50;
+    }
+  </style>
 </head>
 <body>
-    <div>
-        <h1>Welcome!</h1>
-        <p><strong>Discover the Factors Influencing Airplane Ticket Prices</strong></p>
-        <p>Welcome to our flight price prediction page! Here, you can find out how various factors such as the airline, departure and arrival locations, and the timing of your journey can impact the cost of airplane tickets. By understanding these elements, you can make smarter decisions and potentially save on your travel expenses.</p>
-        <br>
-        <h2>TO KNOW THE ACTUAL PRICES</h2>
-        <a href="{{ url_for('predict') }}">Click Here !!!</a>
+
+  <!-- ✅ NAVIGATION BAR -->
+  <nav>
+    <div class="nav-title">SmartFare</div>
+    <div class="nav-links">
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('predict') }}">Predict</a>
     </div>
-    <div>
-        <h2>Factors Affecting Airplane Ticket Prices</h2>
-        <p>The price of an airplane ticket is influenced by several factors, including:</p>
-        <p><strong>Airline:</strong> Different airlines have different pricing strategies.</p>
-        <p><strong>Date of Journey:</strong> Ticket prices can vary significantly depending on the travel date.</p>
-        <p><strong>Source and Destination:</strong> The departure and arrival locations affect the ticket cost.</p>
-        <p><strong>Departure and Arrival Times:</strong> Flights at peak times are usually more expensive.</p>
-        <p><strong>Duration:</strong> The total travel time can impact the price.</p>
-        <p><strong>Total Stops:</strong> Non-stop flights are often more expensive than flights with stops.</p>
-        <p><strong>Additional Information:</strong> Factors such as baggage allowance, in-flight services, and ticket flexibility can also affect prices.</p>
-        <p>By understanding these factors, you can make more informed decisions when booking your flights and potentially save money on airfare.</p>
-    </div>
+  </nav>
+
+  <!-- ✅ MAIN CONTENT -->
+  <div class="container">
+    <h1>Welcome to SmartFare: Flight Price Prediction</h1>
+    <p><strong>Ever wondered what makes your flight ticket so expensive?</strong></p>
+    <p>
+      This intelligent web application helps you understand and predict flight prices using machine learning.
+      By analyzing multiple travel-related factors, it offers an estimated ticket cost before you book —
+      helping you make smarter travel decisions.
+    </p>
+
+    <h2>Ready to estimate your flight cost?</h2>
+    <a href="{{ url_for('predict') }}" class="btn">Predict Now</a>
+  </div>
+
+  <div class="container">
+    <h2>Factors That Influence Flight Ticket Prices</h2>
+    <p><strong>✈️ Airline:</strong> Each airline follows unique pricing strategies based on demand and service levels.</p>
+    <p><strong>📅 Date of Journey:</strong> Prices can vary drastically based on season, holidays, or booking time.</p>
+    <p><strong>🛫 Source & Destination:</strong> Popular and remote routes may affect costs differently.</p>
+    <p><strong>🕐 Departure & Arrival Time:</strong> Peak hours usually come with premium pricing.</p>
+    <p><strong>⏱ Duration:</strong> Shorter non-stop flights may cost more than connecting flights.</p>
+    <p><strong>🔁 Number of Stops:</strong> Direct flights typically charge more than those with layovers.</p>
+    <p><strong>🎒 Additional Services:</strong> Baggage, meals, and flexible bookings contribute to price differences.</p>
+
+    <p>By learning how these factors influence airfare, you can plan better and potentially save more on your next trip.</p>
+  </div>
+
 </body>
 </html>
