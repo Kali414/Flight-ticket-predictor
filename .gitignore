@@ -1,0 +1,13 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Data files (optional - if you don’t want to track datasets)
+data/
+
+# Favicon or browser-specific downloads
+favicon_io*/  # This handles folders like favicon_io (1)/
+
