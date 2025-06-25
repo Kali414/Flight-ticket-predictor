@@ -1,4 +1,4 @@
-# ✈️ Flight Ticket Price Predictor
+# ✈️ SmartFare: Flight Price Prediction Web App
 
 A web application that predicts flight ticket prices based on user input such as airline, source, destination, duration, and time of journey. This project leverages machine learning for price estimation and is deployed using Flask and Render.
 
