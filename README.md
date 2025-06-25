@@ -26,7 +26,7 @@ A web application that predicts flight ticket prices based on user input such as
 
 ## 🔗 Live Demo
 
-👉 [Click here to try the live app](https://flask-project-1-rpbh.onrender.com/)
+👉 [Click here to try the live app](https://smartfare.onrender.com)
 
 ## 📥 Setup Instructions
 
